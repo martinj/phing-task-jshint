@@ -19,6 +19,7 @@ require_once 'phing/util/DataStore.php';
 * This class is based on Stefan Priebsch JslintTask
 * 
 * @author Martin Jonsson <martin.jonsson@gmail.com>
+* @version 1.0.1
 */
 class JsHintTask extends Task {
 	private $file = null;
@@ -64,8 +65,10 @@ class JsHintTask extends Task {
 			throw new BuildException("Missing either a nested fileset or attribute 'file' set");
 		}
 
-		exec($this->executable, $output);
-		if (!preg_match('/Usage:\sjshint/', implode('', $output))) throw new BuildException('JSHint command not found');
+		exec($this->executable . ' -v', $output, $ret);
+		if ($ret !== 0) {
+			throw new BuildException('JSHint command not found');
+		}
     
 		if($this->file instanceof PhingFile) {
 			$this->lint($this->file->getPath());
