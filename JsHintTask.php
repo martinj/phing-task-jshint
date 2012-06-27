@@ -65,7 +65,7 @@ class JsHintTask extends Task {
 			throw new BuildException("Missing either a nested fileset or attribute 'file' set");
 		}
 
-		exec($this->executable . ' -v', $output, $ret);
+		exec('"' . $this->executable . '" -v', $output, $ret);
 		if ($ret !== 0) {
 			throw new BuildException('JSHint command not found');
 		}
