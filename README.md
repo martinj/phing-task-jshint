@@ -36,4 +36,5 @@ _There are no required attributes._
  - **config** - Specifies the jshint config file.
  - **executable** - Path to jshint command.
  - **haltonfailure** - If the build should fail if any lint warnings is found.
+ - **cachefile** - puts last-modified times to a file and does not check them if not changed
 
