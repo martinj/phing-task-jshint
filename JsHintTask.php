@@ -123,7 +123,7 @@ class JsHintTask extends Task {
 			
 			foreach ($messages as $message) {
 				$matches = array();
-				if (preg_match('/^([^:]+):\sline\s([^,]+),\scol\s([^,]+),([^\.]+)\.$/', $message, $matches)) {
+				if (preg_match('/^([^:]+):\sline\s([^,]+),\scol\s([^,]+),(.*)\.$/', $message, $matches)) {
 					$error = array('filename' => $matches[1], 'line' => $matches[2], 'column' => $matches[3], 'message' => $matches[4]);
 					$this->log('- line ' . $error['line'] . (isset($error['column']) ? ' column ' . $error['column'] : '') . ': ' . $error['message'], Project::MSG_ERR);
 				}
