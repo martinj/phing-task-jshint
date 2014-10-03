@@ -1,3 +1,5 @@
+***This project is deprecated use the official [Phing JsHint Task](http://www.phing.info/docs/stable/hlhtml/index.html#JsHintTask)***
+
 # JSHint Phing Task
 
 This project is a [Phing](http://phing.info) build tool task for running [node-jshint](https://github.com/jshint/node-jshint)
